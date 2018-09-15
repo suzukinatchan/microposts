@@ -31,6 +31,8 @@ Route::group(['middleware' => 'auth'], function () {
     //ユーザーの削除、編集・更新・新規作成後の保存動作はできない。
     Route::resource('users', 'UsersController', ['only' => ['index', 'show']]);
     //フォロー・アンフォローについての条件
+    //ユーザーの詳細画面以下、というURLを定義して、後ろに続くものを
+    //以下のgroupの中で定義している。
     Route::group(['prefix' => 'users/{id}'], function () {
         Route::post('follow', 'UserFollowController@store')->name('user.follow');
         Route::delete('unfollow', 'UserFollowController@destroy')->name('user.unfollow');
