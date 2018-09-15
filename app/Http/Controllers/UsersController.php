@@ -2,14 +2,16 @@
 //フォルダの場所を指定、下へと下がっていっている
 namespace App\Http\Controllers;
 //データベースを指定していたような気がする
+//Illuminateは、Laravelプロジェクトの初めにつくもの。
 use Illuminate\Http\Request;
-//ファイルの場所を指定
+//使うモデルのクラス名を指定
 use App\User;
 
 class UsersController extends Controller
 {
      public function index()
     {
+        //$usersはモデルのインスタンス
         $users = User::paginate(10);
 
         return view('users.index', [
