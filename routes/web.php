@@ -27,7 +27,10 @@ Route::post('login', 'Auth\LoginController@login')->name('login.post');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 
 Route::group(['middleware' => 'auth'], function () {
+    //リソースのうちのユーザーの一覧表示と詳細表示だけできるようにする
+    //ユーザーの削除、編集・更新・新規作成後の保存動作はできない。
     Route::resource('users', 'UsersController', ['only' => ['index', 'show']]);
+    //フォロー・アンフォローについての条件
     Route::group(['prefix' => 'users/{id}'], function () {
         Route::post('follow', 'UserFollowController@store')->name('user.follow');
         Route::delete('unfollow', 'UserFollowController@destroy')->name('user.unfollow');
