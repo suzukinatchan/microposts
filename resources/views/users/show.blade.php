@@ -17,10 +17,12 @@
         </aside>
         <div class="col-xs-8">
             <ul class="nav nav-tabs nav-justified">
-                <!--ここはなんの行？-->
+                <!--Timeline一覧-->
                 <li role="presentation" class="{{ Request::is('users/' . $user->id) ? 'active' : '' }}">
+                    <!--users/show.blade.php（つまりこのページに）に飛んでrouterを実行する。-->
                     <a href="{{ route('users.show', ['id' => $user->id]) }}">
                         TimeLine <span class="badge">{{ $count_microposts }}</span>
+                     
                 　　</a>
                 </li>
                 <!-- followings一覧 -->
