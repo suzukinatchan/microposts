@@ -20,8 +20,5 @@ class FavoriteController extends Controller
         return redirect()->back();
 }
 
-    public function user_favorite($id)
-{
-        
-}
+    
 }

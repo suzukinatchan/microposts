@@ -35,6 +35,13 @@
                     <a href="{{ route('users.followers', ['id' => $user->id]) }}">
                         Followers <span class="badge">{{ $count_followers }}</span></a>
                 </li>
+                 <!--favoriteタグ-->
+                <li role="presentation" class="{{ Request::is('users/*/user_favorite') ? 'active' : '' }}">
+                    <!--route()の中は,viewページの場所ではなくrouternameを指定している-->
+                    <a href="{{ route('user_favorite', ['id' => $user->id]) }}">
+                        Favorite <span class="badge">{{ $count_user_favorite }}</span></a>
+                </li>
+                
             </ul>
             @if (Auth::id() == $user->id)
                   {!! Form::open(['route' => 'microposts.store']) !!}

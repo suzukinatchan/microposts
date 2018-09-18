@@ -1,3 +1,5 @@
+<!--users一覧を表示する画面の部品-->
+
 @if (count($users) > 0)
 <ul class="media-list">
 @foreach ($users as $user)

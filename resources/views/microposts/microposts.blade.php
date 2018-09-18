@@ -20,7 +20,7 @@
                 @endif
                 
                  <!--favorite,unfavoriteボタンの設置-->
-                @include('micropost_favorite.favorite_button',['micropost'=>$micropost])
+                @include('user_favorite.favorite_button', ['micropost'=>$micropost]) 
             </div>
         </div>
     </li>
