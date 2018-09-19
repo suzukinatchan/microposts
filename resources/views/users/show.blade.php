@@ -1,3 +1,4 @@
+<!--userのうち、ある一人のマイページ。-->
 @extends('layouts.app')
 
 @section('content')
@@ -20,6 +21,8 @@
                 <!--Timeline一覧-->
                 <li role="presentation" class="{{ Request::is('users/' . $user->id) ? 'active' : '' }}">
                     <!--users/show.blade.php（つまりこのページに）に飛んでrouterを実行する。-->
+                    <!--users.showはrouternameである。
+                    resourceで定義されていて、routernameも勝手に定義されるようになってる！-->
                     <a href="{{ route('users.show', ['id' => $user->id]) }}">
                         TimeLine <span class="badge">{{ $count_microposts }}</span>
                      
